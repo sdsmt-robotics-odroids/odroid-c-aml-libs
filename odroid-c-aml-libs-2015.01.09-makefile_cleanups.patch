@@ -1,0 +1,88 @@
+--- a/Makefile	2015-01-09 01:46:40.000000000 -0800
++++ b/Makefile	2015-02-06 20:12:04.320000000 -0800
+@@ -1,17 +1,17 @@
+ all:
+-	make -C amavutils
+-	make -C amadec
+-	make -C amcodec
++	$(MAKE) -C amavutils
++	$(MAKE) -C amadec
++	$(MAKE) -C amcodec
+ 	
+ install:
+ 	mkdir -p $(DESTDIR)/usr/lib/aml_libs
+-	make -C amavutils install
+-	make -C amadec install
+-	make -C amcodec install
++	$(MAKE) -C amavutils install
++	$(MAKE) -C amadec install
++	$(MAKE) -C amcodec install
+ 	install -m 0666 ld.so.conf $(DESTDIR)/usr/lib/aml_libs
+ 	install -m 0666 aml.conf $(DESTDIR)/etc/ld.so.conf.d
+                 
+ clean:
+-	make -C amavutils clean
+-	make -C amadec clean
+-	make -C amcodec clean                        
++	$(MAKE) -C amavutils clean
++	$(MAKE) -C amadec clean
++	$(MAKE) -C amcodec clean                        
+diff -uNr a/amadec/Makefile b/amadec/Makefile
+--- a/amadec/Makefile	2015-01-09 01:46:40.000000000 -0800
++++ b/amadec/Makefile	2015-02-06 20:13:44.230000000 -0800
+@@ -33,9 +33,9 @@
+     
+ 
+ install:
+-	install -m 0644 libamadec.so $(DESTDIR)/usr/lib/aml_libs
+-	install -m 0644 include/*.h $(DESTDIR)/usr/include
+-	install -m 0644 *.h $(DESTDIR)/usr/include
++	install -p -m 0644 libamadec.so $(DESTDIR)/usr/lib/aml_libs
++	install -p -m 0644 include/*.h $(DESTDIR)/usr/include
++	install -p -m 0644 *.h $(DESTDIR)/usr/include
+ 
+ force:
+ 
+diff -uNr a/amavutils/Makefile b/amavutils/Makefile
+--- a/amavutils/Makefile	2015-01-09 01:46:40.000000000 -0800
++++ b/amavutils/Makefile	2015-02-06 20:12:52.270000000 -0800
+@@ -31,9 +31,9 @@
+     
+ 
+ install:
+-	install -m 0644 ${TARGET} $(DESTDIR)/usr/lib/aml_libs
+-	install -m 0644 include/*.h $(DESTDIR)/usr/include
+-	install -m 0644 include/cutils -d $(DESTDIR)/usr/include/cutils
++	install -p -m 0644 ${TARGET} $(DESTDIR)/usr/lib/aml_libs
++	install -p -m 0644 include/*.h $(DESTDIR)/usr/include
++	install -p -m 0644 include/cutils -d $(DESTDIR)/usr/include/cutils
+ 
+ force:
+ 
+diff -uNr a/amcodec/Makefile b/amcodec/Makefile
+--- a/amcodec/Makefile	2015-01-09 01:46:40.000000000 -0800
++++ b/amcodec/Makefile	2015-02-06 20:13:19.730000000 -0800
+@@ -59,15 +59,15 @@
+ 	rm -rf $(target_all)
+ 
+ install:
+-	install  -m 0644 libamcodec.so $(DESTDIR)/usr/lib/aml_libs
++	install -p -m 0644 libamcodec.so $(DESTDIR)/usr/lib/aml_libs
+ 	
+-	install -m 0644 include -d $(DESTDIR)/usr/include/amcodec
+-	install -m 0644 include/*.h $(DESTDIR)/usr/include/amcodec
+-	install -m 0644 include/*.h $(DESTDIR)/usr/include
++	install -p -m 0644 include -d $(DESTDIR)/usr/include/amcodec
++	install -p -m 0644 include/*.h $(DESTDIR)/usr/include/amcodec
++	install -p -m 0644 include/*.h $(DESTDIR)/usr/include
+ 	
+-	install -m 0644 include/amports -d $(DESTDIR)/usr/include/amports
+-	install -m 0644 include/amports/*.h $(DESTDIR)/usr/include/amports
++	install -p -m 0644 include/amports -d $(DESTDIR)/usr/include/amports
++	install -p -m 0644 include/amports/*.h $(DESTDIR)/usr/include/amports
+ 	
+-	install -m 0644 include/ppmgr -d $(DESTDIR)/usr/include/ppmgr
+-	install -m 0644 include/ppmgr/*.h $(DESTDIR)/usr/include/ppmgr
++	install -p -m 0644 include/ppmgr -d $(DESTDIR)/usr/include/ppmgr
++	install -p -m 0644 include/ppmgr/*.h $(DESTDIR)/usr/include/ppmgr
+ 
