@@ -37,7 +37,6 @@ CFLAGS="${CFLAGS:-%optflags}" make %{?_smp_mflags}
 
 %install
 install -d %{buildroot}%{_includedir}/{amports,cutils,ppmgr,amcodec,amadec,amavutils}/
-install -d %{buildroot}%{_sysconfdir}/ld.so.conf.d/
 install -d %{buildroot}%{_libdir}/
 install -d %{buildroot}%{_prefix}/lib/udev/rules.d/
 
