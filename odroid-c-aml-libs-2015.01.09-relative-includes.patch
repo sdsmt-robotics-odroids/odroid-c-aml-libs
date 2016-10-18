@@ -1,0 +1,27 @@
+From a5c40a24fb9c99bdf64eda2da1c68e488f2b6998 Mon Sep 17 00:00:00 2001
+From: Alex Deryskyba <alex@codesnake.com>
+Date: Wed, 4 May 2016 01:38:27 +0200
+Subject: [PATCH] Fix includes in amcodec/codec.h to make them relative
+
+---
+ amcodec/include/codec.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/amcodec/include/codec.h b/amcodec/include/codec.h
+index 3c0121a..ddaa225 100644
+--- a/amcodec/include/codec.h
++++ b/amcodec/include/codec.h
+@@ -12,8 +12,8 @@
+ #ifndef CODEC_CTRL_H_
+ #define CODEC_CTRL_H_
+ 
+-#include <codec_type.h>
+-#include <codec_error.h>
++#include "codec_type.h"
++#include "codec_error.h"
+ 
+ int codec_init(codec_para_t *);
+ int codec_close(codec_para_t *);
+-- 
+2.5.5
+
