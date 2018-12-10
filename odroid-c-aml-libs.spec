@@ -3,7 +3,7 @@
 
 Name:           odroid-c-aml-libs
 Version:        2015.01.09
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        ODROID-C Amlogic Libraries
 
 Group:          System Environment/Libraries
@@ -15,6 +15,7 @@ Patch0:         %{name}-2015.01.09-makefile_cleanups.patch
 Patch1:         %{name}-2015.01.09-relative-includes.patch
 
 BuildRequires:  alsa-lib-devel
+BuildRequires:  gcc
 
 %package devel
 Summary:        ODROID-C Amlogic Headers
@@ -68,6 +69,9 @@ install -p -m644 %{SOURCE1} %{buildroot}%{_prefix}/lib/udev/rules.d/99-amlogic.r
 %{_includedir}/amavutils/
 
 %changelog
+* Mon Dec 10 2018 Scott K Logan <logans@cottsay.net> - 2015.01.09-3
+- Add BuildRequires: gcc
+
 * Mon Oct 17 2016 Scott K Logan <logans@cottsay.net> - 2015.01.09-2
 - Add patch from Kodi repository
 
